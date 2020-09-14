@@ -1,15 +1,25 @@
 #!/bin/bash
 German () {
 	clear
+	tput setaf 3
+	echo "German..."
+	sleep 3
+	clear
+	tput sgr0
 	echo "Hallo!"
 	echo "Ich bin Nathan."
-	sleep 5
+	sleep 3
 }
 English () {
 	clear
+	tput setaf 3
+	echo "English..."
+	sleep 3
+	clear
+	tput sgr0
 	echo "Hello!"
 	echo "I am Nathan."
-	sleep 5
+	sleep 3
 }
 while true
 do
@@ -18,9 +28,10 @@ do
 	echo "====================================="
 	echo " --- Test for Release 3 Codebase ---"
 	echo "====================================="
-	tput setaf 3; echo "Press 1 followed by <return> to see German."
-	tput setaf 3; echo "Press 2 followed by <return> to see English."
-	tput setaf 1; echo "Press Q followed by <return> to quit." 
+	echo "Press 1 followed by <return> to see German."
+	echo "Press 2 followed by <return> to see English."
+	tput setaf 1
+	echo "Press Q followed by <return> to quit." 
 	tput sgr0
 	read answer
 	case "$answer" in
@@ -29,7 +40,9 @@ do
 		q) exit;;
 		Q) exit;;
 	esac
-	tput setaf 3; clear; echo "Hit <return> to finish."
+	clear
+	tput setaf 2
+	echo "Hit <return> to finish."
 	tput sgr0
 	read answer
 	exit
