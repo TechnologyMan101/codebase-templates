@@ -1,4 +1,12 @@
 #!/bin/bash
+finish () {
+	clear
+	tput setaf 10
+	echo "Hit <return> to finish."
+	tput sgr0
+	read answer
+	exit
+}
 German () {
 	clear
 	tput setaf 3
@@ -9,6 +17,7 @@ German () {
 	echo "Hallo!"
 	echo "Ich bin Nathan."
 	sleep 3
+	finish
 }
 English () {
 	clear
@@ -20,6 +29,7 @@ English () {
 	echo "Hello!"
 	echo "I am Nathan."
 	sleep 3
+	finish
 }
 while true
 do
@@ -30,7 +40,7 @@ do
 	echo "====================================="
 	echo "Press 1 followed by <return> to see German."
 	echo "Press 2 followed by <return> to see English."
-	tput setaf 1
+	tput setaf 9
 	echo "Press Q followed by <return> to quit." 
 	tput sgr0
 	read answer
@@ -40,10 +50,4 @@ do
 		q) exit;;
 		Q) exit;;
 	esac
-	clear
-	tput setaf 2
-	echo "Hit <return> to finish."
-	tput sgr0
-	read answer
-	exit
 done
