@@ -1,4 +1,13 @@
 #!/bin/bash
+badoption () {
+	clear
+	tput setaf 9
+	echo "Invalid Option!"
+	tput setaf 3
+	echo "Returning to Main Menu..."
+	tput sgr0
+	sleep 3
+}
 finish () {
 	clear
 	tput setaf 10
@@ -43,6 +52,7 @@ do
 	tput setaf 9
 	echo "Press Q followed by <return> to quit." 
 	tput sgr0
+	echo "Enter your selection: "
 	read answer
 	case "$answer" in
 		1) German;;
@@ -50,4 +60,5 @@ do
 		q) exit;;
 		Q) exit;;
 	esac
+	badoption
 done
