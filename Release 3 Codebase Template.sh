@@ -47,12 +47,12 @@ do
 	echo "====================================="
 	echo " --- Test for Release 3 Codebase ---"
 	echo "====================================="
-	echo "Press 1 followed by <return> to see German."
-	echo "Press 2 followed by <return> to see English."
+	echo "Press 1 to see German."
+	echo "Press 2 to see English."
 	tput setaf 9
-	echo "Press Q followed by <return> to quit." 
+	echo "Press Q to quit." 
 	tput sgr0
-	echo "Enter your selection: "
+	echo "Enter your selection followed by <return>:"
 	read answer
 	case "$answer" in
 		1) German;;
