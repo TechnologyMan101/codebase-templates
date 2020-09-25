@@ -1,4 +1,31 @@
 #!/bin/bash
+# Start of Function Cluster
+mainmenu () {
+	clear
+	tput setaf 3
+	echo "====================================="
+	echo " --- Test for Release 3 Codebase ---"
+	echo "====================================="
+	echo "Press 1 to see German."
+	echo "Press 2 to see English."
+	tput setaf 9
+	echo "Press Q to quit." 
+	tput sgr0
+	echo "Enter your selection followed by <return>:"
+	read answer
+	case "$answer" in
+		1) German;;
+		2) English;;
+		q) quitscript;;
+		Q) quitscript;;
+	esac
+	badoption
+}
+quitscript () {
+	tput sgr0
+	clear
+	exit
+}
 badoption () {
 	clear
 	tput setaf 9
@@ -14,7 +41,7 @@ finish () {
 	echo "Hit <return> to finish."
 	tput sgr0
 	read answer
-	exit
+	quitscript
 }
 German () {
 	clear
@@ -40,25 +67,10 @@ English () {
 	sleep 3
 	finish
 }
+# End of Function Cluster
+# Start of Main Script
 while true
 do
-	clear
-	tput setaf 3
-	echo "====================================="
-	echo " --- Test for Release 3 Codebase ---"
-	echo "====================================="
-	echo "Press 1 to see German."
-	echo "Press 2 to see English."
-	tput setaf 9
-	echo "Press Q to quit." 
-	tput sgr0
-	echo "Enter your selection followed by <return>:"
-	read answer
-	case "$answer" in
-		1) German;;
-		2) English;;
-		q) exit;;
-		Q) exit;;
-	esac
-	badoption
+	mainmenu
 done
+# End of Main Script
