@@ -34,6 +34,7 @@ badoption () {
 	echo "Returning to Main Menu..."
 	tput sgr0
 	sleep 3
+	mainmenu
 }
 finish () {
 	clear
