@@ -82,7 +82,7 @@ English () {
 }
 echo "Loaded English."
 runcheck () {
-	IFS=$' \t\n'
+	IFS=$'\n'
 	command="$*"
 	retval=1
 	attempt=1
@@ -117,6 +117,42 @@ runcheck () {
 }
 # Note: Add "runcheck" before any command that needs to be checked. This sample script does not include an example as there is nothing to check.
 echo "Loaded runcheck."
+runcheck2 () {
+	IFS=$' \t\n'
+	command="$*"
+	retval=1
+	attempt=1
+	until [[ $retval -eq 0 ]] || [[ $attempt -gt 5 ]]; do
+		(
+			set +e
+			$command
+		)
+		retval=$?
+		attempt=$(( $attempt + 1 ))
+		if [[ $retval -ne 0 ]]; then
+			clear
+			tput setaf 9
+			echo "Oops! Something went wrong! Retrying in 3 seconds..."
+			tput sgr0
+			sleep 3
+			clear
+		fi
+	done
+	if [[ $retval -ne 0 ]] && [[ $attempt -gt 5 ]]; then
+		clear
+		tput setaf 9
+		echo "Oops! A fatal error has occurred and the program cannot continue. Returning to the main menu in 10 seconds..."
+		tput setaf 3
+		echo "Please try again later or if the problem persists, create an issue on GitHub."
+		tput sgr0
+		sleep 10
+		clear
+		mainmenu
+	fi
+	IFS=""
+}
+# Note: This is an alternate to the original runcheck function. It should only be used if unexpected errors are encountered regarding the IFS variable. Add "runcheck2" before any command that needs to be checked. This sample script does not include an example as there is nothing to check.
+echo "Loaded runcheck2."
 tput setaf 3
 echo "Continuing..."
 tput sgr0
