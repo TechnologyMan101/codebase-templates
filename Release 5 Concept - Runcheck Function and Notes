@@ -3,7 +3,7 @@ This is a bash function meant to be added to the end of the function cluster in 
 To use this function after it has been added, add "runcheck" before any command in the script that you want to be error-checked. It is NOT recommended to use this to error-check a function. It should only be used on individual commands. 
 
 runcheck () {
-	IFS=$'\n'
+	IFS=$' \t\n'
 	command="$*"
 	retval=1
 	attempt=1
