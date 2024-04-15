@@ -82,7 +82,7 @@ English () {
 }
 echo "Loaded English."
 runcheck () {
-	IFS=$' \t\n'
+	IFS=$'\n'
 	command="$*"
 	retval=1
 	attempt=1
